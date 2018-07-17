@@ -11,7 +11,7 @@
                         <div class="card-body">
 
                             <div class="card-deck">
-                                @foreach($questions as $question)
+                                @forelse($questions as $question)
                                     <div class="col-sm-4 d-flex align-items-stretch">
                                         <div class="card mb-3 ">
                                             <div class="card-header">
@@ -35,8 +35,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @empty
+                                    <a class="btn btn-primary " href="
+{{ route('questions.create') }}">
+                                        There are no questions to view, click to create a question.
+                                    </a>
                             </div>
+                            @endforelse
 
                         </div>
                         <div class="card-footer">
